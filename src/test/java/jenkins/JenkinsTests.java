@@ -3,8 +3,9 @@ package jenkins;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Assert;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,15 +31,15 @@ public class JenkinsTests {
 
         System.out.println(actualData);
 
-        Map<String, Object> bookingdates = (Map)actualData.get("bookingdates");
+        Map<String, Object> bookingDates = (Map) actualData.get("bookingdates");
 
         Assert.assertEquals("Jim",actualData.get("firstname"));
-        Assert.assertEquals("Jackson",actualData.get("lastname"));
-        Assert.assertEquals(982,actualData.get("totalprice"));
+        Assert.assertEquals("Jones",actualData.get("lastname"));
+        Assert.assertEquals(749,actualData.get("totalprice"));
         Assert.assertEquals(false,actualData.get("depositpaid"));
+        Assert.assertEquals("2015-04-25",bookingDates.get("checkin"));
+        Assert.assertEquals("2017-09-24",bookingDates.get("checkout"));
 
-        Assert.assertEquals("2018-12-06",bookingdates.get("checkin"));
-        Assert.assertEquals("2019-09-05",bookingdates.get("checkout"));
 
 
 
